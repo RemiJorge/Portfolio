@@ -1,11 +1,12 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
 
-const nextConfig: NextConfig = {
-  /* config options here */
-  output: "export",
+const nextConfig = {
+  output: 'export',
+  basePath: 'Portfolio',
+  assetPrefix: 'Portfolio',
   images: {
-    unoptimized: true, // Désactive l'optimisation des images (Next.js dépend d'un serveur)
-  },
+    unoptimized: true,
+    },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
