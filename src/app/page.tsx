@@ -13,8 +13,8 @@ export default function Home() {
         className={styles.avatar}
         src={`${basePath}/avatar.jpg`}
         alt="Portrait"
-        width={140}
-        height={140}
+        width={200}
+        height={200}
         priority
       />
       <h1 className={styles.title}>Hi, I&apos;m Remi</h1>

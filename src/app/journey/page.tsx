@@ -1,11 +1,14 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import styles from "./events.module.css";
+import clsx from "clsx";
 
 type TimelineEvent = {
   year: string;
   title: string;
   description: string;
+  image: string;
 };
 
 const events: TimelineEvent[] = [
@@ -17,6 +20,8 @@ I can't disclose too much due to confidentiality, but I joined Airbus to work on
 
 This experience strengthened my understanding of real-world AI systems, particularly in critical, safety-first environments.
   `,
+    image:
+      "airbus.jpg",
   },
   {
     year: "2023",
@@ -26,6 +31,8 @@ As AI became increasingly popular following OpenAI's early public releases, I se
 
 There, I explored supervised and unsupervised machine learning techniques for classification tasks. It was my first hands-on experience with real-world AI workflows — and I knew I wanted to dive deeper.
   `,
+    image:
+      "zumtobel.jpg",
   },
   {
     year: "2022–2025",
@@ -37,6 +44,8 @@ I gained experience in full-stack web development, mobile and desktop applicatio
 
 Throughout the program, I led numerous individual and team-based projects, which helped me reach the top of my class and graduate with honors.
   `,
+    image:
+      "ecolepolytech.jpg",
   },
   {
     year: "2019–2022",
@@ -48,6 +57,8 @@ I explored complexity theory, logic, formal verification, data structures, and a
 
 These intense years refined my analytical thinking, problem-solving ability, and research orientation. I also built my first serious academic projects, often going beyond the syllabus into unexplored areas.
   `,
+    image:
+      "logic.jpg",
   },
   {
     year: "2017–2018",
@@ -59,6 +70,8 @@ Despite its constraints, I developed several complete video games and mathematic
 
 This experience deeply shaped my understanding of optimization, memory handling, clean loop logic, and low-level thinking — skills that gave me a strong head start in future programming challenges.
     `,
+    image:
+      "calculator.jpg",
   },
   {
     year: "2015–2016",
@@ -68,6 +81,8 @@ Eager to continue after my internship, I enrolled in a new computer science clas
 
 I practiced daily, often outpacing the teacher, and discovered a passion that would guide my future. This hands-on period solidified my understanding of core programming logic.
     `,
+    image:
+      "scratch.jpg",
   },
   {
     year: "2015",
@@ -77,16 +92,69 @@ At just 14 years old, I spent a week at ONERA (The French Aerospace Lab) for my 
 
 This was my very first exposure to computer science. I attended an introductory Python session and learned about basic programming concepts — it sparked something in me that would become a life-long passion.
     `,
+    image:
+      "onera.webp"
   },
 ];
 
 export default function EventsPage() {
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const refs = useRef<(HTMLDivElement | null)[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const center = container.clientHeight / 2;
+      const distances = refs.current.map(
+        (el) =>
+          el &&
+          Math.abs(
+            el.getBoundingClientRect().top -
+              container.getBoundingClientRect().top -
+              center
+          )
+      );
+      const minIndex = distances.reduce(
+        (minIdx, val, idx, arr) =>
+          val !== null && val < arr[minIdx || 0]! ? idx : minIdx,
+        0
+      );
+      setActiveIndex(minIndex || 0);
+    };
+
+    handleScroll();
+    container.addEventListener("scroll", handleScroll, { passive: true });
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const currentBackground = events[activeIndex]?.image ?? "";
+
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{
+        backgroundImage: `url(${currentBackground})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+      ref={containerRef}
+    >
       <h1 className={styles.title}>My Tech Journey</h1>
       <div className={styles.timeline}>
         {events.map((event, index) => (
-          <div key={index} className={styles.event}>
+          <div
+            key={index}
+            ref={(el) => {
+              refs.current[index] = el;
+            }}
+            className={clsx(styles.event, {
+              [styles.active]: index === activeIndex,
+            })}
+          >
             <div className={styles.meta}>
               <span className={styles.year}>{event.year}</span>
               <h2 className={styles.eventTitle}>{event.title}</h2>
