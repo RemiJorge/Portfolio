@@ -19,6 +19,7 @@ export default function Navbar() {
         <nav className={`site-nav ${isOpen ? 'open' : ''}`}>
           <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>
           <Link href="/about" onClick={() => setIsOpen(false)}>About</Link>
+          <Link href="/education" onClick={() => setIsOpen(false)}>Education</Link>
           <Link href="/journey" onClick={() => setIsOpen(false)}>Journey</Link>
           <Link href="/skills" onClick={() => setIsOpen(false)}>Skills</Link>
           <Link href="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
