@@ -1,11 +1,3 @@
-:root {
-  --bg-color: #0d0d0d;
-  --text-color: #f0f0f0;
-  --accent-color: #0070f3;
-  --hover-color: #1a8cff;
-  --transition: 0.3s ease;
-}
-
 .main {
   display: flex;
   flex-direction: column;
