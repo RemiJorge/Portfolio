@@ -20,11 +20,11 @@ export default function Home() {
       <h1 className={styles.title}>Hi, I&apos;m Remi</h1>
       <p className={styles.subtitle}>Software & AI Engineer crafting intelligent digital solutions.</p>
       <nav className={styles.links}>
-        <Link href="/about">About</Link>
-        <Link href="/skills">Skills</Link>
-        <Link href="/projects">Projects</Link>
-        <Link href="/ai-portfolio">AI Portfolio</Link>
-        <Link href="/contact">Contact</Link>
+        <Link href="/about">About me</Link>
+        <Link href="/education">Education</Link>
+        <Link href="/journey">Tech Journey</Link>
+        <Link href="/skills">Hard & Soft Skills</Link>
+        <Link href="/contact">Contact & References</Link>
       </nav>
       <a className={styles.resume} href={`${basePath}/resume.pdf`} target="_blank">Download Resume</a>
     </main>
