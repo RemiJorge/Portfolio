@@ -31,18 +31,18 @@
 }
 
 .container::-webkit-scrollbar-thumb {
-  background: #0070f3;
+  background: var(--accent-color);
   border-radius: 10px;
   border: 2px solid #1a1a1a;
 }
 
 .container::-webkit-scrollbar-thumb:hover {
-  background: #3399ff;
+  background: var(--accent-color);
 }
 
 .container {
   scrollbar-width: thin;
-  scrollbar-color: #0070f3 #1a1a1a;
+  scrollbar-color: var(--accent-color) #1a1a1a;
 }
 
 
@@ -71,7 +71,7 @@
 .event {
   scroll-snap-align: center;
   background-color: #1a1a1a;
-  border-left: 4px solid #0070f3;
+  border-left: 4px solid var(--accent-color);
   padding: 2rem;
   width: 90%;
   max-width: 700px;
