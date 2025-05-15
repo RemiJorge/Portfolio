@@ -47,4 +47,4 @@ npm run export
 - [**Remi Jorge**](https://github.com/RemiJorge)
 
 License
-This project is licensed under the MIT License.
+This project is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
