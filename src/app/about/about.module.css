@@ -1,6 +1,42 @@
 .container {
-    padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  color: var(--text-color);
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.section {
+  margin-bottom: 2.5rem;
+  text-align: justify;
+}
+
+.heading {
+  font-size: 1.75rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.list {
+  list-style: disc;
+  padding-left: 1.5rem;
+  line-height: 1.8;
+}
+
+.education h3 {
+  font-size: 1.2rem;
+  color: #f0f0f0;
+  margin-top: 1.2rem;
+}
+
+.date {
+  font-size: 0.95rem;
+  color: #999;
+  margin-bottom: 0.5rem;
+}

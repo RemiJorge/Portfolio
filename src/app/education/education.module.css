@@ -53,5 +53,5 @@
 }
 
 .blue {
-  color: #00bcd4;
+  color: var(--accent-color);
 }

@@ -86,6 +86,11 @@ export default function Skills() {
         badge:
           "https://img.shields.io/badge/Scala-DE3423?style=for-the-badge&logo=scala&logoColor=white",
       },
+      {
+        name: "Rust",
+        badge:
+          "https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white",
+      },
     ],
     "Frameworks & Libraries": [
       {

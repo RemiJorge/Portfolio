@@ -1,3 +1,11 @@
+:root {
+  --bg-color: #0d0d0d;
+  --text-color: #f0f0f0;
+  --accent-color: #00bfff;
+  --hover-color: #1a8cff;
+  --transition: 0.3s ease;
+}
+
 html, body {
   padding: 0;
   margin: 0;
@@ -55,12 +63,12 @@ a {
   left: 0;
   width: 0%;
   height: 2px;
-  background: #0070f3;
+  background: var(--accent-color);
   transition: width 0.3s ease;
 }
 
 .site-nav a:hover {
-  color: #1a8cff;
+  color: var(--accent-color);
 }
 
 .site-nav a:hover::after {
