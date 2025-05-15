@@ -1,0 +1,57 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.entry {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+  color: #f0f0f0;
+}
+
+.date {
+  font-size: 0.95rem;
+  color: #999;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  margin-bottom: 1rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  color: #ddd;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.blue {
+  color: var(--accent-color);
+}
