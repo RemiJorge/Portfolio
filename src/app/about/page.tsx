@@ -41,11 +41,10 @@ export default function About() {
           work, and solve real-world challenges.
         </p>
         <p>
-          Beyond the code, I value clarity in design,{" "}
-          security in architecture, and{" "}
-          collaboration in execution. I thrive in fast-paced
-          environments where technical excellence, creativity, and strong
-          communication intersect to create meaningful impact.
+          Beyond the code, I value clarity in design, security in architecture,
+          and collaboration in execution. I thrive in fast-paced environments
+          where technical excellence, creativity, and strong communication
+          intersect to create meaningful impact.
         </p>
       </motion.section>
 
@@ -79,6 +78,41 @@ export default function About() {
           Due to confidentiality constraints, many of my academic and
           professional projects are in private repositories. However, I’m always
           happy to discuss them in detail and provide code samples upon request.
+        </p>
+      </motion.section>
+
+      <motion.section
+        className={styles.section}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.6 }}
+      >
+        <h2 className={styles.heading}>
+          🏃‍♂️ Beyond Tech: My Passion for Athletics
+        </h2>
+        <p>
+          For over a decade, I dedicated myself to competitive athletics,
+          training and competing at club level in events ranging from the{" "}
+          100m and 200m to my specialty—the{" "}
+          400m sprint. I had the privilege of competing
+          multiple times at the <strong>French national championships</strong>,
+          frequently ranking in the top 4 in relay events such
+          as the 4x200m.
+        </p>
+        <p>
+          Through this journey, I’ve developed core values that shape how I work
+          today: <strong>discipline</strong>,{" "}
+          <strong>resilience under pressure</strong>, and a relentless drive to{" "}
+          <strong>push my limits</strong>. Training for high-stakes events has
+          taught me how to structure long-term goals, embrace setbacks as
+          learning opportunities, and thrive in a team-oriented,
+          high-performance environment.
+        </p>
+        <p>
+          Today, while I no longer compete at the same level, I continue to
+          challenge myself through running and hiking. Whether it’s on the track
+          or in life, my mindset remains the same: always strive to grow,
+          improve, and give your best.
         </p>
       </motion.section>
     </div>
