@@ -1,42 +1,66 @@
 .container {
-  padding: 2rem;
-  max-width: 1000px;
+  padding: var(--space-xl) var(--space-md);
+  max-width: 52rem;
   margin: 0 auto;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
 .title {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  margin-bottom: var(--space-lg);
   text-align: center;
-  color: var(--text-color);
+  font-weight: 800;
+  letter-spacing: -0.03em;
 }
 
 .section {
-  margin-bottom: 2.5rem;
-  text-align: justify;
+  margin-bottom: var(--space-xl);
+  padding: var(--space-lg);
+  background: var(--surface-glass);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-card);
+  text-align: left;
+}
+
+.section p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0 0 1rem;
+}
+
+.section p:last-child {
+  margin-bottom: 0;
 }
 
 .heading {
-  font-size: 1.75rem;
-  color: var(--accent-color);
-  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  color: var(--accent-bright);
+  margin: 0 0 1rem;
+  font-weight: 700;
 }
 
 .list {
   list-style: disc;
-  padding-left: 1.5rem;
-  line-height: 1.8;
+  padding-left: 1.25rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin: 0;
 }
 
-.education h3 {
-  font-size: 1.2rem;
-  color: #f0f0f0;
-  margin-top: 1.2rem;
-}
-
-.date {
-  font-size: 0.95rem;
-  color: #999;
+.list li {
   margin-bottom: 0.5rem;
+}
+
+.inlineLink {
+  color: var(--accent-bright);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.inlineLink:hover {
+  color: var(--text-primary);
 }

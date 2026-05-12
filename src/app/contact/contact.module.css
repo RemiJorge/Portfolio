@@ -14,15 +14,18 @@
 }
 
 .section {
-  background-color: #1a1a1a;
+  background: var(--surface-glass);
+  border: 1px solid var(--border-subtle);
   padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .section h3 {
   margin-bottom: 1rem;
-  color: var(--accent-color);
+  color: var(--accent);
 }
 
 .contactList,
@@ -44,7 +47,7 @@
 
 .contactList a,
 .referenceList a {
-  color: #1a8cff;
+  color: var(--accent-bright);
   text-decoration: none;
 }
 
@@ -70,8 +73,9 @@
 }
 
 .form button {
-  background-color: var(--accent-color);
-  color: white;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+  color: #061018;
+  font-weight: 600;
   padding: 0.75rem;
   border: none;
   border-radius: 6px;
@@ -80,5 +84,5 @@
 }
 
 .form button:hover {
-  background-color: var(--hover-color);
+  background-color: var(--accent-dim);
 }

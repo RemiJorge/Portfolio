@@ -1,84 +1,83 @@
 "use client";
 
+import Link from "next/link";
 import styles from "./about.module.css";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "motion/react";
+import { pitchShort } from "@/content/profile";
 
 export default function About() {
+  const reduced = useReducedMotion();
+
   return (
     <div className={styles.container}>
       <motion.h1
-        initial={{ opacity: 0, y: -20 }}
+        initial={reduced ? false : { opacity: 0, y: -16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={reduced ? { duration: 0.15 } : { duration: 0.45 }}
         className={styles.title}
       >
-        About Me
+        About
       </motion.h1>
+
       <motion.section
         className={styles.section}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2 }}
+        initial={reduced ? false : { opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={reduced ? { duration: 0.15 } : { delay: 0.08, duration: 0.45 }}
       >
-        <h2 className={styles.heading}>👋 Who Am I?</h2>
+        <h2 className={styles.heading}>Who I am</h2>
         <p>
-          I’m a dedicated and curious engineer with a deep passion for{" "}
-          Artificial Intelligence and Software Engineering. Recently graduated
-          from Polytech Montpellier, I specialize in designing and deploying
-          AI-powered systems that are both technically robust and operationally
-          relevant. Whether it’s building LLM-based diagnostic assistants or
-          implementing real-time anomaly detection systems for mission-critical
-          environments, I enjoy turning complex problems into elegant,
-          data-driven solutions.
+          I am an AI/ML engineer focused on <strong>production systems</strong>:
+          multi-agent orchestration, RAG, model training and serving, and the
+          DevOps and security practices that keep them reliable at scale. As{" "}
+          <strong>CTO &amp; AI Expert at Covaloris</strong>, I lead delivery
+          end-to-end for enterprise clients—from discovery to deployment—while
+          growing a small, high-trust engineering team.
         </p>
+        <p>{pitchShort}</p>
         <p>
-          My background blends a rigorous academic foundation with hands-on
-          experience across a range of technologies—from machine learning
-          frameworks like PyTorch and TensorFlow, to full-stack web and mobile
-          development using Python, React, and Node.js. I take pride in
-          delivering high-quality, scalable software, and I’m driven by a core
-          belief: that responsible AI can profoundly improve the way we live,
-          work, and solve real-world challenges.
-        </p>
-        <p>
-          Beyond the code, I value clarity in design,{" "}
-          security in architecture, and{" "}
-          collaboration in execution. I thrive in fast-paced
-          environments where technical excellence, creativity, and strong
-          communication intersect to create meaningful impact.
+          For a structured view of roles and impact, see the{" "}
+          <Link href="/experience" className={styles.inlineLink}>
+            Experience
+          </Link>{" "}
+          page.
         </p>
       </motion.section>
 
       <motion.section
         className={styles.section}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4 }}
+        initial={reduced ? false : { opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={reduced ? { duration: 0.15 } : { delay: 0.16, duration: 0.45 }}
       >
-        <h2 className={styles.heading}>💡 What Drives Me?</h2>
+        <h2 className={styles.heading}>What drives me</h2>
         <ul className={styles.list}>
-          <li>🚀 Tackling meaningful problems with AI and innovative tech</li>
           <li>
-            🧠 Learning continuously — currently exploring Golang, and NASM
+            Shipping AI that survives real users: latency, evaluation, and
+            operational guardrails—not just demos.
           </li>
-          <li>🤝 Collaborating on high-impact projects with ambitious teams</li>
           <li>
-            📈 Applying agile methodologies and strong project management skills
+            Closing the loop between research and production: fine-tuning,
+            retrieval quality, and measurable business outcomes.
+          </li>
+          <li>
+            Clear architecture, honest trade-offs, and tight collaboration with
+            stakeholders on both sides of the technical boundary.
           </li>
         </ul>
       </motion.section>
 
       <motion.section
         className={styles.section}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.0 }}
+        initial={reduced ? false : { opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={reduced ? { duration: 0.15 } : { delay: 0.24, duration: 0.45 }}
       >
-        <h2 className={styles.heading}>🔍 A Note on Projects</h2>
+        <h2 className={styles.heading}>Projects &amp; confidentiality</h2>
         <p>
-          Due to confidentiality constraints, many of my academic and
-          professional projects are in private repositories. However, I’m always
-          happy to discuss them in detail and provide code samples upon request.
+          Much of my professional and academic work lives in private repositories
+          or client environments. I am happy to walk through architectures,
+          results, and code samples in conversation when appropriate.
         </p>
       </motion.section>
     </div>

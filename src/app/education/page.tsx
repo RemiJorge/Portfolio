@@ -1,16 +1,19 @@
 "use client";
 
 import styles from "./education.module.css";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "motion/react";
 
 export default function Education() {
+  const reduced = useReducedMotion();
+  const t = reduced ? { duration: 0.15 } : { duration: 0.55 };
+
   return (
     <div className={styles.container}>
       <motion.h2
         className={styles.title}
-        initial={{ opacity: 0, y: -30 }}
+        initial={reduced ? false : { opacity: 0, y: -24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={t}
       >
         Education
       </motion.h2>
@@ -18,10 +21,10 @@ export default function Education() {
       <section className={styles.entry}>
         <motion.div
           className={styles.card}
-          initial={{ opacity: 0, x: -30 }}
+          initial={reduced ? false : { opacity: 0, x: -24 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={t}
         >
           <h3><span className={styles.blue}>Polytech Montpellier </span>– Engineering School - Computer Science & Business Management</h3>
           <p className={styles.date}>2022 – 2025</p>
@@ -52,10 +55,10 @@ export default function Education() {
       <section className={styles.entry}>
         <motion.div
           className={styles.card}
-          initial={{ opacity: 0, x: 30 }}
+          initial={reduced ? false : { opacity: 0, x: 24 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={t}
         >
           <h3>
             <span className={styles.blue}>Lycée Buffon, Paris </span>- Intensive Preparatory Program (Classe Préparatoire MP*) – Mathematics, Physics and Computer Science
