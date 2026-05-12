@@ -1,42 +1,82 @@
 .container {
-  padding: 2rem;
-  max-width: 1000px;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  max-width: 820px;
   margin: 0 auto;
   color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.pageHeader {
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
 .title {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  color: var(--text-color);
+  font-size: clamp(2rem, 4vw, 2.65rem);
+  margin: 0 0 0.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.section {
-  margin-bottom: 2.5rem;
-  text-align: justify;
+.lead {
+  margin: 0 auto;
+  max-width: 40rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-size: 1.05rem;
+}
+
+.card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  box-shadow: var(--shadow-md);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  border-color: color-mix(in srgb, var(--accent) 28%, var(--border));
+  box-shadow: var(--shadow-lg);
+}
+
+.card p {
+  margin: 0 0 1rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  text-align: left;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
 }
 
 .heading {
-  font-size: 1.75rem;
-  color: var(--accent-color);
-  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: var(--accent-strong);
+  margin: 0 0 0.85rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .list {
-  list-style: disc;
-  padding-left: 1.5rem;
-  line-height: 1.8;
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.education h3 {
-  font-size: 1.2rem;
-  color: #f0f0f0;
-  margin-top: 1.2rem;
-}
-
-.date {
-  font-size: 0.95rem;
-  color: #999;
-  margin-bottom: 0.5rem;
+.list li::marker {
+  color: var(--accent);
 }

@@ -1,118 +1,97 @@
 "use client";
 
 import styles from "./about.module.css";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function About() {
   return (
     <div className={styles.container}>
-      <motion.h1
-        initial={{ opacity: 0, y: -20 }}
+      <motion.header
+        className={styles.pageHeader}
+        initial={{ opacity: 0, y: -16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className={styles.title}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       >
-        About Me
-      </motion.h1>
+        <h1 className={styles.title}>About</h1>
+        <p className={styles.lead}>
+          I build production AI systems — multi-agent orchestration, RAG, model
+          training and serving, and the DevOps and security practices required to
+          run them reliably for real users.
+        </p>
+      </motion.header>
+
       <motion.section
-        className={styles.section}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2 }}
+        className={styles.card}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.45 }}
       >
-        <h2 className={styles.heading}>👋 Who Am I?</h2>
+        <h2 className={styles.heading}>Who I am</h2>
         <p>
-          I’m a dedicated and curious engineer with a deep passion for{" "}
-          Artificial Intelligence and Software Engineering. Recently graduated
-          from Polytech Montpellier, I specialize in designing and deploying
-          AI-powered systems that are both technically robust and operationally
-          relevant. Whether it’s building LLM-based diagnostic assistants or
-          implementing real-time anomaly detection systems for mission-critical
-          environments, I enjoy turning complex problems into elegant,
-          data-driven solutions.
+          I am an AI/ML engineer with a strong software-engineering backbone. My
+          work spans the full lifecycle of intelligent products: clarifying
+          requirements with stakeholders, designing retrieval and agentic
+          workflows, training and evaluating models, hardening APIs and
+          infrastructure, and shipping to the cloud with CI/CD and observability
+          in mind.
         </p>
         <p>
-          My background blends a rigorous academic foundation with hands-on
-          experience across a range of technologies—from machine learning
-          frameworks like PyTorch and TensorFlow, to full-stack web and mobile
-          development using Python, React, and Node.js. I take pride in
-          delivering high-quality, scalable software, and I’m driven by a core
-          belief: that responsible AI can profoundly improve the way we live,
-          work, and solve real-world challenges.
-        </p>
-        <p>
-          Beyond the code, I value clarity in design, security in architecture,
-          and collaboration in execution. I thrive in fast-paced environments
-          where technical excellence, creativity, and strong communication
-          intersect to create meaningful impact.
+          I care about latency, correctness, and maintainability — whether the
+          surface is an LLM-powered assistant, a classical ML pipeline, or a
+          closed-loop system informed by reinforcement learning. I hold degrees
+          from Polytech Montpellier (engineering, honors) after intensive
+          preparatory work in mathematics and theoretical computer science; that
+          mix shapes how I reason about risk, optimization, and robust design.
         </p>
       </motion.section>
 
       <motion.section
-        className={styles.section}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4 }}
+        className={styles.card}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.45, delay: 0.05 }}
       >
-        <h2 className={styles.heading}>💡 What Drives Me?</h2>
+        <h2 className={styles.heading}>What I focus on</h2>
         <ul className={styles.list}>
-          <li>🚀 Tackling meaningful problems with AI and innovative tech</li>
-          <li>
-            🧠 Learning continuously — currently exploring Golang, and NASM
-          </li>
-          <li>🤝 Collaborating on high-impact projects with ambitious teams</li>
-          <li>
-            📈 Applying agile methodologies and strong project management skills
-          </li>
+          <li>Production multi-agent systems and RAG at enterprise quality bars.</li>
+          <li>Model development: NLP, embeddings, classification/regression, CV, time series.</li>
+          <li>Platform work: FastAPI services, containers, Kubernetes, secrets, and secure APIs.</li>
+          <li>Team leadership: mentoring, sprint planning, and clear communication across functions.</li>
         </ul>
       </motion.section>
 
       <motion.section
-        className={styles.section}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.0 }}
+        className={styles.card}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.45, delay: 0.1 }}
       >
-        <h2 className={styles.heading}>🔍 A Note on Projects</h2>
+        <h2 className={styles.heading}>Projects and confidentiality</h2>
         <p>
-          Due to confidentiality constraints, many of my academic and
-          professional projects are in private repositories. However, I’m always
-          happy to discuss them in detail and provide code samples upon request.
+          Much of my client and research work lives in private repositories or
+          internal environments. I am happy to walk through architecture,
+          trade-offs, and outcomes in conversation and to share non-sensitive
+          samples when appropriate.
         </p>
       </motion.section>
 
       <motion.section
-        className={styles.section}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6 }}
+        className={styles.card}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.45, delay: 0.12 }}
       >
-        <h2 className={styles.heading}>
-          🏃‍♂️ Beyond Tech: My Passion for Athletics
-        </h2>
+        <h2 className={styles.heading}>Beyond engineering</h2>
         <p>
-          For over a decade, I dedicated myself to competitive athletics,
-          training and competing at club level in events ranging from the{" "}
-          100m and 200m to my specialty—the{" "}
-          400m sprint. I had the privilege of competing
-          multiple times at the <strong>French national championships</strong>,
-          frequently ranking in the top 4 in relay events such
-          as the 4x200m.
-        </p>
-        <p>
-          Through this journey, I’ve developed core values that shape how I work
-          today: <strong>discipline</strong>,{" "}
-          <strong>resilience under pressure</strong>, and a relentless drive to{" "}
-          <strong>push my limits</strong>. Training for high-stakes events has
-          taught me how to structure long-term goals, embrace setbacks as
-          learning opportunities, and thrive in a team-oriented,
-          high-performance environment.
-        </p>
-        <p>
-          Today, while I no longer compete at the same level, I continue to
-          challenge myself through running and hiking. Whether it’s on the track
-          or in life, my mindset remains the same: always strive to grow,
-          improve, and give your best.
+          For many years I trained and competed in athletics at club level
+          (sprints and relays), including appearances at the{" "}
+          <strong>French national championships</strong>. That background
+          reinforced discipline, resilience under pressure, and how to perform
+          when outcomes matter — habits I bring to engineering and leadership.
         </p>
       </motion.section>
     </div>

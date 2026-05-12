@@ -1,27 +1,43 @@
 "use client";
 
 import styles from "./contact.module.css";
+import { motion } from "motion/react";
+import { PERSON } from "@/content/profile";
 
 export default function Contact() {
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Contact & References</h2>
+      <motion.header
+        className={styles.header}
+        initial={{ opacity: 0, y: -12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <h1 className={styles.title}>Contact & references</h1>
+        <p className={styles.banner}>{PERSON.openTo}</p>
+      </motion.header>
 
-      <section className={styles.section}>
-        <h3>Personal Contact</h3>
+      <motion.section
+        className={styles.section}
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.45 }}
+      >
+        <h2>Personal contact</h2>
         <ul className={styles.contactList}>
           <li>
             <strong>Email:</strong>{" "}
-            <a href="mailto:remijorge5@gmail.com">remijorge5@gmail.com</a>
+            <a href={`mailto:${PERSON.email}`}>{PERSON.email}</a>
           </li>
           <li>
             <strong>Phone:</strong>{" "}
-            <a href="tel:+33771634485">+33 7 71 63 44 85</a>
+            <a href={`tel:${PERSON.phone}`}>{PERSON.phoneDisplay}</a>
           </li>
           <li>
             <strong>LinkedIn:</strong>{" "}
             <a
-              href="https://www.linkedin.com/in/remi-jorge"
+              href={PERSON.linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -31,7 +47,7 @@ export default function Contact() {
           <li>
             <strong>GitHub:</strong>{" "}
             <a
-              href="https://github.com/remijorge"
+              href={PERSON.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -39,10 +55,16 @@ export default function Contact() {
             </a>
           </li>
         </ul>
-      </section>
+      </motion.section>
 
-      <section className={styles.section}>
-        <h3>References</h3>
+      <motion.section
+        className={styles.section}
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.45, delay: 0.05 }}
+      >
+        <h2>References</h2>
         <ul className={styles.referenceList}>
           <li>
             <strong>Tiberiu Stratulat</strong>
@@ -113,21 +135,27 @@ export default function Contact() {
             </a>
           </li>
         </ul>
-      </section>
+      </motion.section>
 
-      <section className={styles.section}>
-        <h3>Send Me a Message</h3>
+      <motion.section
+        className={styles.section}
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.45, delay: 0.08 }}
+      >
+        <h2>Send a message</h2>
         <form
           className={styles.form}
           method="POST"
-          action="https://formsubmit.co/remijorge5@gmail.com"
+          action={`https://formsubmit.co/${PERSON.email}`}
         >
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Your Email" required />
-          <textarea name="message" placeholder="Your Message" required />
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+          <textarea name="message" placeholder="Your message" required />
           <button type="submit">Send</button>
         </form>
-      </section>
+      </motion.section>
     </div>
   );
 }

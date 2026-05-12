@@ -1,19 +1,19 @@
 "use client";
 
 import styles from "./education.module.css";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function Education() {
   return (
     <div className={styles.container}>
-      <motion.h2
+      <motion.h1
         className={styles.title}
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
         Education
-      </motion.h2>
+      </motion.h1>
 
       <section className={styles.entry}>
         <motion.div

@@ -1,11 +1,25 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Script from "next/script";
+import { DM_Sans, JetBrains_Mono } from "next/font/google";
 import Navbar from "@/components/NavBar";
+import { SITE } from "@/content/profile";
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Remi's Portfolio",
-  description: "Software & AI Engineer Portfolio",
+  title: SITE.title,
+  description: SITE.description,
 };
 
 export default function RootLayout({
@@ -14,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${dmSans.variable} ${jetbrainsMono.variable}`}>
       <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-87N7X2YXWX"
@@ -30,7 +44,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className="dark-theme">
+      <body className="dark-theme site-body">
         <Navbar />
         <main>{children}</main>
       </body>

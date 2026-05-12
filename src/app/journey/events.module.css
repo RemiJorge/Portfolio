@@ -1,14 +1,44 @@
 .container {
   height: 93vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   scroll-snap-type: y mandatory;
-  padding: 2vh 0;
-  background-color: #0d0d0d;
+  padding: 2vh 0 4rem;
+  background-color: var(--bg-deep);
   background-blend-mode: multiply;
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  color: #f0f0f0;
+  color: var(--text-color);
+  position: relative;
+}
+
+.container::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+      ellipse 80% 50% at 50% -20%,
+      color-mix(in srgb, var(--accent) 18%, transparent),
+      transparent 55%
+    ),
+    var(--noise-bg);
+  opacity: 0.9;
+  z-index: 0;
+}
+
+.gradientBg {
+  background-image: radial-gradient(
+      circle at 30% 20%,
+      color-mix(in srgb, var(--accent-2) 25%, transparent),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 60%,
+      color-mix(in srgb, var(--accent) 15%, transparent),
+      transparent 45%
+    ),
+    var(--bg-deep);
 }
 
 @media (max-width: 768px) {
@@ -22,37 +52,44 @@
 }
 
 .container::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 .container::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: var(--surface-1);
   border-radius: 10px;
 }
 
 .container::-webkit-scrollbar-thumb {
-  background: var(--accent-color);
+  background: color-mix(in srgb, var(--accent) 55%, var(--surface-2));
   border-radius: 10px;
-  border: 2px solid #1a1a1a;
-}
-
-.container::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-color);
 }
 
 .container {
   scrollbar-width: thin;
-  scrollbar-color: var(--accent-color) #1a1a1a;
+  scrollbar-color: color-mix(in srgb, var(--accent) 55%, transparent)
+    var(--surface-1);
 }
 
-
 .title {
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   text-align: center;
-  margin-bottom: 2rem;
-  color: #ffffff;
-  font-weight: bold;
-  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  z-index: 2;
+  position: relative;
+}
+
+.subtitle {
+  text-align: center;
+  max-width: 36rem;
+  margin: 0 auto 1.5rem;
+  padding: 0 1rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
   z-index: 2;
   position: relative;
 }
@@ -61,59 +98,70 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6rem;
-  padding-top: 7vh;
-  padding-bottom: 22vh;
+  gap: clamp(3rem, 8vh, 5rem);
+  padding-top: 4vh;
+  padding-bottom: 18vh;
   position: relative;
   z-index: 2;
 }
 
 .event {
   scroll-snap-align: center;
-  background-color: #1a1a1a;
-  border-left: 4px solid var(--accent-color);
-  padding: 2rem;
-  width: 90%;
-  max-width: 700px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
-  transition: transform 0.4s ease, background-color 0.3s ease, scale 0.4s ease;
-  opacity: 0.95;
-  transform: scale(0.95);
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  width: min(92%, 720px);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+  opacity: 0.88;
+  transform: scale(0.97);
 }
 
 .event:hover {
-  transform: scale(1.03);
-  background-color: #232323;
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
 }
 
 .event.active {
-  transform: scale(1.05);
+  transform: scale(1);
+  opacity: 1;
   z-index: 3;
+  box-shadow: var(--shadow-glow), var(--shadow-lg);
 }
 
 .meta {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .year {
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: #00bfff;
-  margin-bottom: 0.3rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-strong);
+  margin-bottom: 0.35rem;
 }
 
 .eventTitle {
-  font-size: 1.5rem;
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
   margin: 0;
-  color: #ffffff;
+  color: var(--text-color);
+  font-weight: 650;
+  letter-spacing: -0.02em;
 }
 
 .description {
   white-space: pre-wrap;
-  line-height: 1.6;
-  color: #cccccc;
-  margin-top: 1rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
 }
